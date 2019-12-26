@@ -1,0 +1,24 @@
+#include <iostream>
+#include <string>
+#include <locale>
+#include <windows.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	string S;
+	int k, l, i;
+	k = 0;
+	cout << "Введите строку - ";
+	getline(cin, S);
+	l = S.size();
+	for (i = 0; i < l; i++) {
+		if (S[i] >= 'A' && S[i] <= 'Z') {
+			k++;
+		}
+	}
+	cout << "Количество прописных латинских букв = " << k;
+
+	return 0;
+
+}

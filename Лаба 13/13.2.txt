@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int N, A, D;
+    cout << "Pervii chlen = ";
+    cin >> A;
+    cout << "Znamenatel' = ";
+    cin >> D;
+    cout << "N = ";
+    cin >> N;
+    if (N > 1)
+    {
+        int *mass = new int[N];
+        for (int i = 1; i <= N; i=i+1)
+        {
+            mass[i] = A;
+            cout << "mass[" << i << "] = " <<  mass[i] << endl;
+            A=A*D;
+        }
+    	system("pause");
+    	return 0;
+    }
+}

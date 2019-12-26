@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int N, x;
+    cout << "N = ";
+    cin >> N;
+    x=1;
+    if (N > 0)
+    {
+        int *mass = new int[N];
+        for (int i = 1; i <= N; i=i+1)
+        {
+            mass[i] = x;
+            cout << "mass[" << i << "] = " <<  mass[i] << endl;
+            x=x+2;
+        }
+    	system("pause");
+    	return 0;
+    }
+}

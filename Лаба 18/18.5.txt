@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+int main()
+{
+	int m, n, i, j, x, y;
+	cout << "M = ";
+	cin >> m;
+	cout << "N = ";
+	cin >> n;
+	cout << "--------\n";
+	int** Mas = new int* [m];
+	for (i = 0; i < m; i++)
+		Mas[i] = new int[n];
+
+	for (i = 0; i < m; i++)
+		for (j = 0; j < n; j++)
+		{
+			Mas[i][j] = rand() % 10;
+		}
+	for (i = 0; i < m; i++)
+	{
+		for (j = 0; j < n; j++)
+			cout << Mas[i][j] << " ";
+		cout << "\n";
+	}
+	cout << "--------\n";
+	x = 0;
+	y = 0;
+	for (j = 0; j < n; j++)
+	{
+		for (i = 0; i < m; i++)
+		{
+			if (Mas[i][j] % 2 == 1)
+			{
+				x = x + 1;
+			}
+		}
+		if (x == m)
+		{
+			y = j;
+		}
+		x = 0;
+	}
+	cout << "nomer stolbca = " << y << endl;
+	cout << "--------\n";
+	for (i = 0; i < m; i++)
+	delete[] Mas[i];
+	delete[] Mas;
+	return 0;
+}

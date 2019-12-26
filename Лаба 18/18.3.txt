@@ -1,0 +1,54 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+int main()
+{
+	int m, n, i, j, pr , minpr, i1;
+	cout << "M = ";
+	cin >> m;
+	cout << "N = ";
+	cin >> n;
+	cout << "--------\n";
+	int** Mas = new int* [m];
+	for (i = 0; i < m; i++)
+		Mas[i] = new int[n];
+
+	for (i = 0; i < m; i++)
+		for (j = 0; j < n; j++)
+		{
+			Mas[i][j] = rand() % 10;
+		}
+	for (i = 0; i < m; i++)
+	{
+		for (j = 0; j < n; j++)
+			cout << Mas[i][j] << " ";
+		cout << "\n";
+	}
+	cout << "--------\n";
+	minpr = 1;
+	for (i = 0; i < m; i++)
+	{
+		minpr = minpr * Mas[i][0];
+			i1 = 0;
+	}
+	for (j = 1; j < n; j++)
+	{
+		pr = 1;
+		for (i = 0; i < m; i++)
+		{
+			pr = pr * Mas[i][j];
+		}
+		if (pr < minpr)
+		{
+			minpr = pr;
+			i1 = j - 2;
+		}
+	}
+	cout << "minpr = " << minpr << "\nj = " << i1;
+	cout << "\n--------\n";
+	for (i = 0; i < m; i++)
+	delete[] Mas[i];
+	delete[] Mas;
+	return 0;
+}

@@ -1,0 +1,43 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	int m, i, j, n, c;
+	cout << "M = ";
+	cin >> m;
+	cout << "N = ";
+	cin >> n;
+	cout << "-------\n";
+	int** a = new int* [m];
+	for (i = 1; i <= m; i++)
+		a[i] = new int[n];
+	for (i = 1; i <= m; i++)
+		for (j = 1; j <= n; j++)
+			cin >> a[i][j];
+
+	for (i = 1; i <= m; i++) {
+		for (j = 1; j <= n; j++)
+			cout << a[i][j] << " ";
+		cout << endl;
+	}
+	cout << endl;
+
+	for (j = 1; j <= (n / 2); j++)
+
+	{
+		for (i = 1; i <= (m / 2); i++)
+		{
+			c = a[i][j];
+			a[i][j] = a[(m / 2) + i][(n / 2) + j];
+			a[(m / 2) + i][(n / 2) + j] = c;
+		}
+	}
+
+	for (i = 1; i <= m; i++) {
+		for (j = 1; j <= n; j++)
+			cout << a[i][j] << " ";
+		cout << endl;
+	}
+
+	return 0;
+}

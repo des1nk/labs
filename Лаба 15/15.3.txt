@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, A, i, x;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	x = 0;
+	int* mass = new int[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "A" << i << " = ";
+		cin >> A;
+		mass[i] = A;
+	}
+	cout << "-------\n--MASS 1--\n";
+	for (i = 1; i <= N; i++)
+	{
+	    cout << "mass[" << i << "] = " << mass[i] << endl;
+	}
+	cout << "-------\n--MASS 2--\n";
+	for (i = N; i > 0; i=i-1)
+	{
+	   if ( mass[i] % 2 == 1) 
+	   {
+    	    if (x == 0)
+    	    {
+    	        x = mass[i];
+    	    }
+	   }
+	}
+	for (i = 1; i <= N; i++)
+	{
+	    if ( mass[i] % 2 == 1)
+	    {
+	        mass[i] = mass[i] + x;
+	        cout << "mass[" << i << "] = " << mass[i] << endl;
+	    }
+	    else 
+	    {
+	        cout << "mass[" << i << "] = " << mass[i] << endl;
+	    }
+	}
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int N, A, B, x;
+    cout << "A = ";
+    cin >> A;
+    cout << "B = ";
+    cin >> B;
+    cout << "N = ";
+    cin >> N;
+    if (N > 2)
+    {
+        x=A+B;
+        int *mass = new int[N];
+        mass[1] = A;
+        mass[2] = B;
+        cout << "mass[" << 1 << "] = " <<  mass[1] << endl;
+        cout << "mass[" << 2 << "] = " <<  mass[2] << endl;
+        for (int i = 3; i <= N; i=i+1)
+        {
+            mass[i] = x;
+            cout << "mass[" << i << "] = " <<  mass[i] << endl;
+            x=2*x;
+        }
+    	system("pause");
+    	return 0;
+    }
+}

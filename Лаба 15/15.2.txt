@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, A, i;
+	float x;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	x = 0;
+	int* massA = new int[N];
+	float* massB = new float[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "A" << i << " = ";
+		cin >> A;
+		massA[i] = A;
+		x = x + A;
+		massB[i] = x / i;
+	}
+	cout << "-------\n";
+	for (i = 1; i <= N; i++)
+	{
+	    cout << "massA[" << i << "] = " << massA[i] << endl;
+	}
+	cout << "-------\n";
+	for (i = 1; i <= N; i++)
+	{
+	    cout << "massB[" << i << "] = " << massB[i] << endl;
+	}
+	 cout << endl;
+	system("pause");
+	return 0;
+}

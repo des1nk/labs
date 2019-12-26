@@ -1,0 +1,22 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int l, i;
+	string S;
+	cout << "Введите строку - ";
+	getline(cin, S);
+	l = S.size();
+	cout << "Итоговая строка - ";
+	for (i = 0; i < l; i++) {
+		if (S[i] == ' ')
+			S.erase(i, 1);
+		cout << S[i] << " ";
+	}
+	
+	return 0;
+
+}

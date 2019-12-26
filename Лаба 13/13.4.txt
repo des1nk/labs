@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+    int N, A, x;
+    cout << "N = ";
+    cin >> N;
+    cout << "-------\n";
+    if (N > 0)
+    {
+        x=N;
+        int *mass = new int[N];
+        for (int z = 1; z <= N; z++)
+        {
+            cout << "A" << z << " = ";
+            cin >> A;
+            mass[z]=A;
+        }
+        cout << "-------\n";
+        if ( N % 2 == 1)
+        {
+        for (int i = 1; i <= N/2; i=i+1)
+        {
+            cout << "mass[" << i << "] = " <<  mass[i] << endl;
+            cout << "mass[" << x << "] = " <<  mass[x] << endl;
+            x=x-1;
+        }
+        cout << "mass[" << x << "] = " <<  mass[x] << endl;
+        }
+        else
+        {
+            for (int i = 1; i <= N/2; i=i+1)
+            {
+            cout << "mass[" << i << "] = " <<  mass[i] << endl;
+            cout << "mass[" << x << "] = " <<  mass[x] << endl;
+            x=x-1;
+            }
+        }
+    	system("pause");
+    	return 0;
+    }
+}

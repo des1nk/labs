@@ -1,0 +1,29 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, A, x, i;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	int* mass = new int[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "A" << i << " = ";
+		cin >> A;
+		mass[i] = A;
+	}
+	x = mass[2];
+	for (i = 4; i <= N; i=i+2)
+	{
+	    if ( mass[i] < x )
+	    {
+	        x = mass[i];
+	    }
+	}
+	cout << "-------\n";
+	cout << "Min element = " << x << endl;
+	system("pause");
+	return 0;
+}

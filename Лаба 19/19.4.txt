@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+#include <math.h>
+using namespace std;
+int main()
+{
+	int M, N, i, j, min, k, min1, e, max;
+	cout << "M = ";
+	cin >> M;
+	cout << "N = ";
+	cin >> N;
+	cout << "--------\n";
+	int** Mas = new int* [M];
+	for (i = 0; i < N; i++)
+		Mas[i] = new int[N];
+
+	for (i = 0; i < M; i++)
+		for (j = 0; j < N; j++)
+		{
+			cin >> Mas[i][j];
+		}
+	cout << "--------\n";
+	
+	min = Mas[0][0];
+	for (j = 0; j < N; j++)
+	{
+		k = 0;
+		if (Mas[0][j] < min)
+		{
+			min = Mas[0][j];
+			k = j;
+		}
+		e = Mas[0][0];
+		Mas[0][0] = min;
+		Mas[0][k] = e;
+	}
+
+
+	for (i = 1; i < M; i++)
+	{
+		max = Mas[i][0];
+		for (j = 1; j < N; j++)
+		{
+			if (max < Mas[i][j])
+			{
+				max = Mas[i][j];
+			}
+		}
+		for (j = 1; j < N; j++)
+		{
+			if ((min < Mas[i][j]) && (Mas[i][j] <= max))
+			{
+				max = Mas[i][j];
+				e = Mas[i][0];
+				Mas[i][0] = Mas[i][j];
+				Mas[i][j] = e;
+			}
+		}
+		min = Mas[i][0];
+	}
+
+
+	for (i = 0; i < M; i++)
+	{
+		for (j = 0; j < N; j++)
+		{
+			cout << Mas[i][j] << " ";
+		}	
+		cout << endl;
+	}
+
+
+	return 0;
+}

@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int m, i, j, k, c, sum;
+	cout << "M = ";
+	cin >> m;
+	cout << "-------" << endl;
+	int** a = new int* [m];
+	for (i = 1; i <= m; i++)
+		a[i] = new int[m];
+	for (i = 1; i <= m; i++)
+		for (j = 1; j <= m; j++)
+			cin >> a[i][j];
+	cout << "-------\n" <<endl;
+	c = m;
+	sum = 0;
+	for (k = 1; k <= (m * 2 - 1); k++) 
+	{
+		for (i = 1; i <= m; i++)
+			for (j = 1; j <= m; j++)
+				if (i == j + c - 1)
+					sum += a[i][j];
+		cout << "Сумма " << k << " Диагонали =" << sum << endl;
+		sum = 0;
+		c--;
+	}
+
+	return 0;
+
+}

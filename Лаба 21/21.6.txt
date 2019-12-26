@@ -1,0 +1,33 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char name[12];
+	int k, m, i, i1;
+	string s;
+	k = 0;
+	cout << "Введите строку - ";
+	getline(cin, s);
+	cout << "Имя файла - ";
+	k = 0;
+	m = s.size();
+
+	for (i = 0; i < m; i++)
+		if (s[i] == 92)
+			k++;
+
+	if (k == 1)
+		cout << char(92);
+	else {
+		cout << "Название последнего каталога - ";
+		for (i = s.find_last_of(92, s.find_last_of(92) - 1) + 1; i < s.find_last_of(92); i++)
+			cout << s[i];
+	}
+
+	return 0;
+
+}

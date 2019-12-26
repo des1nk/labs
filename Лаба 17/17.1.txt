@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, x, i, k;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	int* a = new int[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "a[" << i << "] = ";
+		cin >> x;
+		a[i] = x;
+	}
+	cout << "-------\n";
+	int* b = new int[N];
+	int* c = new int[N];
+	k = 1;
+	for (i = 1; i < N; i++)
+	{
+	    if (a[i] == a[i+1])
+	    {
+	        if (a[i+1] != a[i+2])
+	        {
+	            i = i + 1;
+	        }
+	        k = k + 1;
+	    }
+	    if (a[i] != a[i+1])
+	    {
+	        b[i] = k;
+	        c[i] = a[i];
+	        k = 1;   
+	    }
+	    if (i == (N-1))
+	    {
+	        b[i] = k;
+	        c[i] = a[i];
+	    }
+	}
+	for (i = 1; i <= N; i++)
+	{
+		cout << "b[" << i << "] = " << b[i]<< endl;
+	}
+	cout << "-------\n";
+	for (i = 1; i <= N; i++)
+	{
+	cout << "c[" << i << "] = " << c[i]<< endl ;
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}

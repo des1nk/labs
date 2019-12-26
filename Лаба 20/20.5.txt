@@ -1,0 +1,23 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int l, i, k;
+	string s, s0;
+	cout << "Введите строку s - ";
+	getline(cin, s);
+	cout << "Введите строку s0 - ";
+	getline(cin, s0);
+	k = 0;
+	while ((s.find(s0) >= 0) & (s.find(s0) < (s.size() + 1))) {
+		s.erase(s.find(s0), s0.length());
+		k++;
+	}
+	cout << "Количество вхождений = " << k;
+
+	return 0;
+
+}

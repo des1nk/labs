@@ -1,0 +1,30 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+#include <fstream>
+using namespace std;
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char name[12];
+	int i;
+	string s, Filename;
+	fstream f;
+	cout << "Полное имя файла - "; //E:\Введение в программирование\Лаба 22\4.txt
+	getline(cin, Filename);
+	f.open(Filename);
+	getline(f, s, '\0');
+	f.close();
+	for (i = 1; i < s.size(); i++) 
+	{
+		if ((s[i - 1] == ' ') && (s[i] == ' ')) 
+		{
+			s.erase(i, 1);
+			i--;
+		}
+	}
+	f.open(Filename, ios::out);
+	f << s;
+	f.close();
+}

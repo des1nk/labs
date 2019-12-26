@@ -1,0 +1,27 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+#include <fstream>
+using namespace std;
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char name[12];
+	int i, j, m, n, k;
+	string s, s0, Filename, Filename0;
+	fstream f, f0;
+	cout << "Полное имя первого файла - "; //E:\Введение в программирование\Лаба 22\3.1.txt
+	getline(cin, Filename);
+	f.open(Filename);
+	getline(f, s, '\0');
+	f.close();
+	cout << "Полное имя второго файла - "; //E:\Введение в программирование\Лаба 22\3.2.txt
+	getline(cin, Filename0);
+	f0.open(Filename0);
+	getline(f0, s0, '\0');
+	f0.close();
+	f.open(Filename, ios::out);
+	f << s0 << s;
+	f.close();
+}

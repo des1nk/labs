@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <windows.h>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char name[12];
+	int i, m;
+	string s, Filename;
+	fstream f;
+	cout << "Имя файла - ";
+	getline(cin, Filename);
+	f.open(Filename); // E:\Введение в программирование\Лаба 22\1.txt
+	if (f) {
+		while (!f.eof()) 
+		{
+			getline(f, s, '\0');
+			m = s.size();
+			for (i = s.find(' ') + 1; i < m; i++) 
+			{
+				f << s[i];
+			}
+		}
+		f.close();
+		f.open(Filename, ios::out);
+		for (i = s.find(' ') + 1; i < m; i++) 
+		{
+			f << s[i];
+		}
+		f.close();
+	}
+	else 
+	{
+		cout << "Файл не существует";
+	}
+}

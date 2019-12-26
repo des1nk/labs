@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, A, x, y, i;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	int* mass = new int[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "A" << i << " = ";
+		cin >> A;
+		mass[i] = A;
+	}
+	x = 1;
+	for ( i = N - 1; i > 1; i = i - 1 )
+	{
+	    if ( (mass [i] > mass [i+1]) && (mass [i] > mass [i-1]) )
+	    {
+    	     while (x!=0)  
+    	     { 
+    	         y = i;
+    	         x = 0;
+    	     }
+	    }
+	}
+	cout << "-------\n";
+	if (x == 1)
+	{
+	    cout << "Error";
+	}
+	else
+	{
+	    cout << "Local maximym = A" << y << endl;
+	}
+	system("pause");
+	return 0;
+}

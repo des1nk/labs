@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, A, i, x, y;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	int* mass = new int[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "mass[" << i << "] = ";
+		cin >> A;
+		mass[i] = A;
+	}
+	cout << "-------\n";
+	if (mass[1] > mass[2])
+	{
+		y = mass[1];
+		if (mass[1] > mass[N])
+		{
+			for (i = 1; i < N; i++)
+			{
+				mass[i] = mass[i + 1];
+			}
+			mass[N] = y;
+		}
+		else
+		{
+			for (i = 2; i < N; i++)
+			{
+				if ((mass[1] > mass[i]) && (mass[1] < mass[i + 1]))
+				{
+					x = i;
+				}
+			}
+			for (i = 1; i < x; i++)
+			{
+				mass[i] = mass[i + 1];
+			}
+			mass[x] = y;
+		}
+	}
+	for (i = 1; i <= N; i++)
+	{
+		cout << "mass[" << i << "] = " << mass[i] << endl;
+	}
+	cout << endl;
+	system("pause");
+	return 0;
+}

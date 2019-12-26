@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int c, n, l;
+	cout << "N = ";
+	cin >> n;
+	int* mas = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		cout << "mass[" << i << "] = ";
+		cin >> mas[i];
+	}
+	cout << "L = ";
+	cin >> l;
+	for (int i = 0; i < n; i++)
+	{
+		c = 1;
+		for (int j = i + 1; j < n; j++)
+		{
+			if (mas[j] == mas[i]) { c++; }
+			else { break; }
+		}
+		if (c > l) {
+			for (int j = i; j < i + c; j++) {
+				cout << mas[j] << ends;
+			}
+			i = i + c;
+		}
+		if (c == l) { i = i + l - 1; cout << "0" << ends; }
+		else { cout << mas[i] << ends; }
+	}
+	delete mas;
+	system("PAUSE");
+	return 0;
+}

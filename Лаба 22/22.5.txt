@@ -1,0 +1,28 @@
+#include <string>
+#include <iostream>
+#include <windows.h>
+#include <fstream>
+using namespace std;
+int main()
+{
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	char name[12];
+	int i, k;
+	string s, Filename;
+	fstream f;
+	cout << "Полное имя файла - ";
+	getline(cin, Filename); //E:\Введение в программирование\Лаба 22\5.txt
+	f.open(Filename);
+	getline(f, s, '\0');
+	f.close();
+	k = 0;
+	for (i = 4; i < s.size(); i++) 
+	{
+		if ((s[i - 4] == ' ') && (s[i - 3] == ' ') && (s[i - 2] == ' ') && (s[i - 1] == ' ') && (s[i] == ' ')) 
+		{
+			k++;
+		}
+	}
+	cout << "Количество абзацев и красных строчек - " << k;
+}

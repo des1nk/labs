@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+int main()
+{
+	int N, A, x, y, z, i;
+	cout << "N = ";
+	cin >> N;
+	cout << "-------\n";
+	x = 0;
+	y = 0;
+	int* kek = new int[N];
+	int* eke = new int[N];
+	int* mass = new int[N];
+	for (i = 1; i <= N; i++)
+	{
+		cout << "A" << i << " = ";
+		cin >> A;
+		if (i % 2 == 1)
+		{
+			x = x + 1;
+			kek[x] = A;
+		}
+		else
+		{
+			y = y + 1;
+			eke[y] = A;
+		}
+	}
+	cout << "-------\n";
+	for (i = 1; i <= x; i++)
+	{
+		mass[i] = kek[i];
+		cout << "mass[" << i << "] = " << mass[i] << endl;
+	}
+	z = x + 1;
+	for (i = y; i >= 1; i=i-1)
+	{
+		mass[z] = eke[i];
+		cout << "mass[" << z << "] = " << mass[z] << endl;
+		z = z + 1;
+	}
+	system("pause");
+	return 0;
+}
